@@ -1,28 +1,18 @@
 #include <stdio.h>
-
+#define N 512
 int main()
 {
-    int matriz[4][4] = {
-        {1, 2, 3, 4},
-        {5, 6, 7, 8},
-        {9, 10, 11, 12},
-        {13, 14, 15, 16}};
+	int matriz[N][N];
+	int resultado[N][N] = {0};
 
-    int resultado[4][4] = {0};
-
-    for (int i = 0; i < 4; i++)
-        for (int j = 0; j < 4; j++)
-            for (int k = 0; k < 4; k++)
+	for (int i = 0; i < N; i++)
+    	for (int j = 0; j < N; j++)
+        	matriz[i][j] = (i + j) % 100;
+   
+	 for (int i = 0; i < N; i++)
+        for (int j = 0; j < N; j++)
+            for (int k = 0; k < N; k++)
                 resultado[i][j] = resultado[i][j] + matriz[k][j] * matriz[i][k];
-
-    for (int i = 0; i < 4; i++)
-    {
-        for (int j = 0; j < 4; j++)
-        {
-            printf("%d ", resultado[i][j]);
-        }
-        printf("\n");
-    }
 
     return 1;
 }
